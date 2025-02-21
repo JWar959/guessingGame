@@ -163,7 +163,16 @@ const history = (req, res) => {
 }
 
 const game_history = (req, res) => {
+
+    /*
     const game_guesses = guesses.filter(g => g.gameId == req.query.gameId);
+    */
+
+    const record = db.prepare('select * from game where id = ?').get(req.query.gameId);
+    record.guesses = db.prepare('select * from guesses where game = ? order by time desc').all(record.id).map(g => g.guess);
+    const game = Game.fromRecord(record);    
+
+
     const html = heading() +
         `
         <table>
