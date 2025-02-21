@@ -7,6 +7,7 @@ class Game{
         game.guesses = record.guesses || [];
         game.complete = record.completed;
         game.time = record.time;
+        game.guesses = record.guesses;
         return game;
     }
 
@@ -17,7 +18,7 @@ class Game{
     }
 
     make_guess(user_guess){
-        this.guesses.push(user_guess);
+        //this.guesses.push(user_guess);
         if(user_guess === this.secret){
             this.complete = 1;
             this.time = (new Date()).toLocaleDateString();

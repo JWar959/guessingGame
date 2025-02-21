@@ -102,6 +102,7 @@ const guess = async (req, res) => {
         res.end();
         return;
     }
+
     // create a game instance from the record in the db
     const game = Game.fromRecord(record);
     const response = game.make_guess(req.body.guess);
@@ -116,6 +117,10 @@ const guess = async (req, res) => {
     
 
     // don't forget to update the database at this step!!
+    const g = db.prepare('insert into guesses (game, guess, time) values (?, ?, ?)');
+    g.run(game.id, req.body.guess, (new Date()).getTime());    
+
+
     const stmt = db.prepare('update game set completed = ?, time = ? where id = ?');
     stmt.run(game.complete, game.time, game.id);
 }
@@ -126,6 +131,9 @@ const history = (req, res) => {
     // get all the completed games from the database, and build instances from 
     // the records.  Otherwise, the HTML is EXACTLY the same.
     const records = db.prepare('select * from game where completed = ?').all(1);
+    for (const r of records) {
+        r.guesses = db.prepare('select * from guesses where game = ? order by time').all(r.id).map(g => g.guess);
+    }   
     const games = records.map(r => Game.fromRecord(r));
 
     const html = heading() +
