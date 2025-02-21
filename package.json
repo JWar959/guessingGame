@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.0.3",
+    "sqlite-async": "^1.1.1"
+  }
+}
