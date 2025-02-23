@@ -1,0 +1,15 @@
+{
+  "name": "wf-johnw-guess-game",
+  "version": "1.0.0",
+  "description": "Logic for Foundations of Web Devlopment guessing game",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freezer333"
+  },
+  "author": "John W",
+  "license": "MIT"
+}

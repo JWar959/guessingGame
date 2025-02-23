@@ -1,0 +1,14 @@
+{
+  "name": "wf-johnw-guess-db",
+  "version": "1.0.0",
+  "description": "Database wrapper code for the Foundations of Web Development",
+  "main": "guess-db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  }
+}

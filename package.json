@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "better-sqlite3": "^11.8.1",
-    "dotenv": "^16.0.3",
-    "sqlite-async": "^1.1.1"
+    "dotenv": "^16.4.7",
+    "sqlite-async": "^1.1.1",
+    "wf-johnw-guess-db": "^1.0.0",
+    "wf-johnw-guess-game": "^1.0.0"
   }
 }
